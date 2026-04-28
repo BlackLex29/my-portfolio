@@ -52,7 +52,7 @@ export default function CV() {
               </div>
             </div>
             <a
-              href="/CV.pdf"
+              href="/LExter_CV.pdf"
               download
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-2.5 px-5 rounded-md transition-all duration-200 text-sm shrink-0"
             >
@@ -87,7 +87,7 @@ export default function CV() {
                 { label: "Frontend", skills: ["Next.js", "React", "TailwindCSS", "TypeScript", "Framer Motion"] },
                 { label: "Backend", skills: ["Node.js", "Express.js", "REST APIs", "Socket.io"] },
                 { label: "Database", skills: ["PostgreSQL", "NeonDB", "MongoDB", "Firebase", "MySQL", "Prisma ORM"] },
-                { label: "Tools & Platforms", skills: ["Git", "GitHub", "Vercel", "Postman", "VS Code"] },
+                { label: "Tools & Platforms", skills: ["Git", "GitHub", "Vercel", "Render", "Postman", "VS Code"] },
               ].map((group) => (
                 <div key={group.label} className="rounded-lg p-4"
                   style={{ background: "var(--toggle-bg)", border: "1px solid var(--border)" }}>
@@ -110,31 +110,7 @@ export default function CV() {
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="mb-8" style={{ borderTop: "1px solid var(--border)" }} />
 
-          {/* Key Projects */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-muted mb-4">
-              Key Projects
-            </h4>
-            <ul className="space-y-2.5">
-              {[
-                "Holy Event — Modern, welcoming UI design for a church community landing page.",
-                "Vault Breaker — Modern anime-style UI/UX landing page design for an urban freerunning game.",
-                "Girlies Birthing Home Client — Admin dashboard SPA for patient, EMR, and appointment management.",
-                "Rendezvous Café (Admin System) — Café management web app with auth and order management, deployed on Vercel.",
-                "Rendezvous Café (Customer Portal) — The customer-facing portal allowing users to browse the menu and place orders.",
-                "FurSure Care — Pet health platform with vaccination tracking, appointments, and smart reminders.",
-                "Girlies Inquiry Portal — Public patient portal for cost estimation and appointment booking.",
-              ].map((item, i) => (
-                <li key={i} className="flex gap-3 text-muted text-sm leading-relaxed">
-                  <span className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
         </motion.div>
       </div>
     </section>
