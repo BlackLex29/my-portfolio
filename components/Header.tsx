@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useTheme } from "./ThemeProvider";
+import { useEffect, useRef, useState } from "react";
+import { ACCENTS, useTheme } from "./ThemeProvider";
 import { useReveal } from "./RevealProvider";
 
 const Moon = () => (
@@ -19,6 +19,17 @@ const Sun = () => (
   </svg>
 );
 
+const Palette = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+    fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+    <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+    <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+    <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z" />
+  </svg>
+);
+
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "Projects", href: "#projects" },
@@ -28,11 +39,25 @@ const NAV_LINKS = [
 ];
 
 export default function Header() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, accent, setAccent } = useTheme();
   const { revealed, reveal, goHome } = useReveal();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [accentMenuOpen, setAccentMenuOpen] = useState(false);
+  const accentMenuRef = useRef<HTMLDivElement>(null);
+
+  // Close the accent picker when clicking outside it.
+  useEffect(() => {
+    if (!accentMenuOpen) return;
+    const onClickOutside = (e: MouseEvent) => {
+      if (accentMenuRef.current && !accentMenuRef.current.contains(e.target as Node)) {
+        setAccentMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, [accentMenuOpen]);
 
   // While the landing page is showing, "Home" is the only active link.
   useEffect(() => {
@@ -141,6 +166,34 @@ export default function Header() {
             </svg>
             Hire Me
           </a>
+
+          {/* Accent color picker */}
+          <div className="relative" ref={accentMenuRef}>
+            <button
+              onClick={() => setAccentMenuOpen((o) => !o)}
+              aria-label="Choose accent color"
+              className="theme-toggle-btn w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200"
+            >
+              <Palette />
+            </button>
+            {accentMenuOpen && (
+              <div className="accent-menu">
+                {ACCENTS.map((a) => (
+                  <button
+                    key={a.id}
+                    onClick={() => {
+                      setAccent(a.id);
+                      setAccentMenuOpen(false);
+                    }}
+                    aria-label={a.label}
+                    title={a.label}
+                    className={`accent-swatch${accent === a.id ? " accent-swatch-active" : ""}`}
+                    style={{ background: a.swatch }}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* Theme toggle */}
           <button

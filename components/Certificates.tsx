@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Calendar, ExternalLink, Coffee, Database } from "lucide-react";
+import { Award, Calendar, ExternalLink, Coffee, Database, Building2, GraduationCap } from "lucide-react";
 
 const CERTIFICATES = [
   {
@@ -33,6 +33,26 @@ const CERTIFICATES = [
     accentBg: "rgba(249, 115, 22, 0.08)",
     accentBorder: "rgba(249, 115, 22, 0.2)",
     icon: Database,
+  },
+  {
+    title: "Introduction to S/4HANA using Global Bike",
+    issuer: "SAP University Alliances",
+    date: "2024",
+    file: "/SAP-LAYLO.pdf",
+    accent: "#0070f2",
+    accentBg: "rgba(0, 112, 242, 0.08)",
+    accentBorder: "rgba(0, 112, 242, 0.2)",
+    icon: Building2,
+  },
+  {
+    title: "Skills to Succeed Academy",
+    issuer: "Accenture",
+    date: "2025",
+    file: "/S2SAcademy-achievement-certificate.pdf",
+    accent: "#a100ff",
+    accentBg: "rgba(161, 0, 255, 0.08)",
+    accentBorder: "rgba(161, 0, 255, 0.2)",
+    icon: GraduationCap,
   },
 ];
 

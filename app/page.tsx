@@ -55,6 +55,21 @@ const CONTACT_CARDS = [
       </svg>
     ),
   },
+  {
+    id: "contact-linkedin",
+    label: "LinkedIn",
+    value: "Mark Lexter Laylo",
+    href: "https://www.linkedin.com/in/mark-lexter-laylo-9509a53a0/",
+    target: "_blank",
+    accent: "#0A66C2",
+    accentBg: "rgba(10, 102, 194, 0.08)",
+    accentBorder: "rgba(10, 102, 194, 0.2)",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.114 20.452H3.558V9h3.556v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+    ),
+  },
 ];
 
 function HomeContent() {
@@ -110,7 +125,7 @@ function HomeContent() {
             >
               {/* Contact Section */}
               <section id="contact" className="py-24 px-6 section-alt">
-                <div className="max-w-3xl mx-auto text-center">
+                <div className="max-w-4xl mx-auto text-center">
                   {/* Section tag */}
                   <div className="flex justify-center mb-3">
                     <span className="section-tag">
@@ -134,7 +149,7 @@ function HomeContent() {
                   </p>
 
                   {/* Contact Cards */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {CONTACT_CARDS.map((card) => (
                       <a
                         key={card.id}

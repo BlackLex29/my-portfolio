@@ -43,9 +43,9 @@ export default function Hero() {
   const { reveal } = useReveal();
 
   return (
-    <section className="relative flex flex-col md:flex-row h-screen overflow-hidden pt-16 box-border">
+    <section className="relative flex flex-col md:flex-row h-dvh overflow-hidden pt-16 box-border">
       {/* Left — photo half */}
-      <div className="relative w-full md:w-1/2 h-[40vh] md:h-full overflow-hidden">
+      <div className="relative w-full md:w-1/2 h-[26vh] sm:h-[34vh] md:h-full overflow-hidden shrink-0">
         <img
           src="/BSIT_LAYLO_white_bg.jpg"
           alt="Mark Lexter Laylo"
@@ -55,7 +55,7 @@ export default function Hero() {
 
       {/* Right — dark content half */}
       <div
-        className="relative w-full md:w-1/2 flex flex-col justify-center px-8 sm:px-12 md:px-14 lg:px-20 py-16 md:py-24"
+        className="relative w-full md:w-1/2 flex-1 min-h-0 flex flex-col justify-center overflow-y-auto px-6 sm:px-12 md:px-14 lg:px-20 py-5 sm:py-10 md:py-24"
         style={{ background: "#141414" }}
       >
         {/* Available badge */}
@@ -63,7 +63,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-6"
+          className="mb-3 md:mb-6"
         >
           <span className="hero-badge-dark">
             <span className="available-dot" />
@@ -76,7 +76,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="hero-kicker mb-5 h-4"
+          className="hero-kicker mb-2 md:mb-5 h-4"
         >
           {role}
           <span className="animate-pulse ml-0.5">|</span>
@@ -87,8 +87,8 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="font-black text-white leading-[1.05] mb-6"
-          style={{ fontFamily: "var(--font-outfit), sans-serif", fontSize: "clamp(2.75rem, 6vw, 4.5rem)", letterSpacing: "-0.02em" }}
+          className="font-black text-white leading-[1.05] mb-3 md:mb-6"
+          style={{ fontFamily: "var(--font-outfit), sans-serif", fontSize: "clamp(2.2rem, 8vw, 4.5rem)", letterSpacing: "-0.02em" }}
         >
           <span className="flex items-center">
             <span className="hero-heading-line" />
@@ -102,7 +102,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-sm leading-relaxed mb-10 max-w-sm"
+          className="text-sm leading-relaxed mb-4 md:mb-10 max-w-sm"
           style={{ color: "rgba(255,255,255,0.55)" }}
         >
           I design and build reliable, full-stack web applications — from
@@ -114,7 +114,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-wrap items-center gap-8"
+          className="flex flex-wrap items-center gap-4 md:gap-8"
         >
           <button type="button" onClick={() => reveal("projects")} className="hero-btn-explore">
             Explore Now

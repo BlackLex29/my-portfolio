@@ -63,6 +63,47 @@
   --accent-text: #3f3f3f;
 }
 
+/* ─── Accent colors (layered on top of either theme) ───── */
+[data-accent="navy"] {
+  --primary: #1e3a5f;
+  --primary-light: #3b6ea5;
+  --primary-foreground: #ffffff;
+  --accent-text: #2f5788;
+  --glow-primary: rgba(30, 58, 95, 0.3);
+}
+
+[data-accent="slate"] {
+  --primary: #334155;
+  --primary-light: #64748b;
+  --primary-foreground: #ffffff;
+  --accent-text: #475569;
+  --glow-primary: rgba(51, 65, 85, 0.28);
+}
+
+[data-accent="teal"] {
+  --primary: #0f766e;
+  --primary-light: #2dd4bf;
+  --primary-foreground: #ffffff;
+  --accent-text: #0d9488;
+  --glow-primary: rgba(15, 118, 110, 0.3);
+}
+
+[data-accent="burgundy"] {
+  --primary: #7f1d3d;
+  --primary-light: #b13a5c;
+  --primary-foreground: #ffffff;
+  --accent-text: #9d2d4f;
+  --glow-primary: rgba(127, 29, 61, 0.3);
+}
+
+[data-accent="forest"] {
+  --primary: #166534;
+  --primary-light: #3f9159;
+  --primary-foreground: #ffffff;
+  --accent-text: #1f7a40;
+  --glow-primary: rgba(22, 101, 52, 0.3);
+}
+
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -136,6 +177,44 @@ body {
   border: 1px solid var(--border-subtle);
 }
 
+.accent-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: var(--card-solid);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  z-index: 60;
+  animation: accentMenuIn 0.18s ease-out;
+}
+
+@keyframes accentMenuIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.accent-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 1px var(--border-subtle);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.accent-swatch:hover {
+  transform: scale(1.15);
+}
+
+.accent-swatch-active {
+  box-shadow: 0 0 0 2px var(--card-solid), 0 0 0 4px var(--foreground);
+}
+
 .theme-toggle-btn:hover {
   background: var(--toggle-hover);
   color: var(--nav-link-hover);
@@ -181,14 +260,14 @@ body {
 
 /* ─── Gradient text ─────────────────────────────── */
 [data-theme="dark"] .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #b9a2ff 55%, #7dd3fc 100%);
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 [data-theme="light"] .gradient-text {
-  background: linear-gradient(135deg, #101010 0%, #7c3aed 55%, #2563eb 100%);
+  background: linear-gradient(135deg, #101010 0%, var(--primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -416,7 +495,7 @@ body {
 }
 
 .hero-gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #b9a2ff 55%, #7dd3fc 100%);
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
