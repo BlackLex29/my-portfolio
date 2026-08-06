@@ -27,7 +27,6 @@
   --glow-primary: rgba(0, 0, 0, 0.35);
   --shimmer-from: rgba(255,255,255,0);
   --shimmer-via: rgba(255,255,255,0.05);
-  --skill-track: rgba(255,255,255,0.1);
   --featured-bg: rgba(255,255,255,0.04);
   --accent-text: #d4d4d4;
 }
@@ -58,7 +57,6 @@
   --glow-primary: rgba(0, 0, 0, 0.14);
   --shimmer-from: rgba(255,255,255,0);
   --shimmer-via: rgba(255,255,255,0.7);
-  --skill-track: rgba(0,0,0,0.08);
   --featured-bg: rgba(0,0,0,0.02);
   --accent-text: #3f3f3f;
 }
@@ -365,27 +363,6 @@ body {
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
   min-width: 80px;
-}
-
-/* ─── Skill bar ─────────────────────────────────── */
-.skill-bar-track {
-  height: 5px;
-  background: var(--skill-track);
-  border-radius: 99px;
-  overflow: hidden;
-}
-
-.skill-bar-fill {
-  height: 100%;
-  border-radius: 99px;
-  background: linear-gradient(90deg, var(--primary), var(--primary-light));
-  transform-origin: left;
-  animation: fillBar 1s ease forwards;
-}
-
-@keyframes fillBar {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
 }
 
 /* ─── Shimmer ───────────────────────────────────── */

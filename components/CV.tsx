@@ -1,16 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, User, Mail, FileText, Briefcase, GraduationCap, Code2 } from "lucide-react";
-
-const SKILLS = [
-  { label: "Next.js / React", level: 90 },
-  { label: "Node.js / Express", level: 82 },
-  { label: "PostgreSQL / Prisma", level: 80 },
-  { label: "TypeScript", level: 75 },
-  { label: "TailwindCSS", level: 92 },
-  { label: "REST APIs / Socket.io", level: 78 },
-];
+import { Download, User, Mail, FileText, Briefcase, GraduationCap } from "lucide-react";
 
 const EXPERIENCE = [
   {
@@ -42,27 +33,6 @@ const SKILL_GROUPS = [
     ],
   },
 ];
-
-function SkillBar({ label, level, delay = 0 }: { label: string; level: number; delay?: number }) {
-  return (
-    <div>
-      <div className="flex justify-between items-center mb-1.5">
-        <span className="text-sm font-medium" style={{ color: "var(--foreground)" }}>{label}</span>
-        <span className="text-xs font-semibold" style={{ color: "var(--accent-text)" }}>{level}%</span>
-      </div>
-      <div className="skill-bar-track">
-        <motion.div
-          className="skill-bar-fill"
-          initial={{ width: 0 }}
-          whileInView={{ width: `${level}%` }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay, ease: "easeOut" }}
-          style={{ width: `${level}%` }}
-        />
-      </div>
-    </div>
-  );
-}
 
 export default function CV() {
   return (
@@ -204,19 +174,6 @@ export default function CV() {
                         <p className="text-xs text-muted leading-relaxed">{exp.description}</p>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Skill Bars */}
-              <div>
-                <div className="flex items-center gap-2 mb-5">
-                  <Code2 className="w-4 h-4" style={{ color: "var(--accent-text)" }} />
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-muted">Proficiency</h4>
-                </div>
-                <div className="flex flex-col gap-4">
-                  {SKILLS.map((s, i) => (
-                    <SkillBar key={s.label} label={s.label} level={s.level} delay={i * 0.08} />
                   ))}
                 </div>
               </div>
